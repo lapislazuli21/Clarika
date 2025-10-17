@@ -1,0 +1,6 @@
+.env
+makefile
+docker-compose.yml
+Dockerfile
+backend/.env
+backend/target/

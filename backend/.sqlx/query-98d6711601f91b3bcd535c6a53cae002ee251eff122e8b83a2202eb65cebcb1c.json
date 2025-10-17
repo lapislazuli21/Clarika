@@ -1,0 +1,60 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "\n            INSERT INTO raci_assignments (user_id, task_id, role)\n            VALUES ($1, $2, $3)\n            ON CONFLICT (user_id, task_id) DO UPDATE SET role = EXCLUDED.role\n            RETURNING user_id, task_id, role AS \"role: _\"\n            ",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "task_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "role: _",
+        "type_info": {
+          "Custom": {
+            "name": "raci_role",
+            "kind": {
+              "Enum": [
+                "Responsible",
+                "Accountable",
+                "Consulted",
+                "Informed"
+              ]
+            }
+          }
+        }
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Uuid",
+        {
+          "Custom": {
+            "name": "raci_role",
+            "kind": {
+              "Enum": [
+                "Responsible",
+                "Accountable",
+                "Consulted",
+                "Informed"
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "98d6711601f91b3bcd535c6a53cae002ee251eff122e8b83a2202eb65cebcb1c"
+}

@@ -1,0 +1,56 @@
+{
+  "db_name": "PostgreSQL",
+  "query": "INSERT INTO growth_templates (user_id, core_competencies, developing_skills, recent_achievements, how_to_contribute) VALUES ($1, $2, $3, $4, $5) RETURNING id, user_id, core_competencies, developing_skills, recent_achievements, how_to_contribute",
+  "describe": {
+    "columns": [
+      {
+        "ordinal": 0,
+        "name": "id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 1,
+        "name": "user_id",
+        "type_info": "Uuid"
+      },
+      {
+        "ordinal": 2,
+        "name": "core_competencies",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 3,
+        "name": "developing_skills",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 4,
+        "name": "recent_achievements",
+        "type_info": "Text"
+      },
+      {
+        "ordinal": 5,
+        "name": "how_to_contribute",
+        "type_info": "Text"
+      }
+    ],
+    "parameters": {
+      "Left": [
+        "Uuid",
+        "Text",
+        "Text",
+        "Text",
+        "Text"
+      ]
+    },
+    "nullable": [
+      false,
+      false,
+      false,
+      false,
+      false,
+      false
+    ]
+  },
+  "hash": "e033d5b8d84b1cd201b51bf0962ce1cd782ff8b067396e09da93460497c66fea"
+}

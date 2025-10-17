@@ -1,0 +1,5 @@
+# Ignore the .env file so it's not available during the build
+.env
+
+# Ignore the build artifacts folder
+target/
